@@ -1,0 +1,470 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=DM+Sans:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    background: #030306;
+    overflow: hidden;
+}
+
+/* MAIN BACKGROUND */
+
+main {
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    position: relative;
+    background: radial-gradient(ellipse at center, #171020, #030306 75%);
+    isolation: isolate;
+}
+
+/* TITLE */
+
+h1 {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    font-family: 'Bowlby One SC', sans-serif;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: .85;
+    text-align: center;
+    color: #fff0cf;
+    z-index: 5;
+    text-shadow: 0 0 20px #ff7436;
+    white-space: nowrap;
+}
+
+h1 span {
+    color: #ff7436;
+    text-shadow: 5px 5px #8e3219, 0 0 25px #ff4d00;
+}
+
+/* TURKEY - EXACT CENTER */
+
+.stage {
+    position: absolute;
+    width: min(95vw, 650px);
+    height: 55vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#turkey {
+    width: min(75vw, 390px);
+    height: 100%;
+    max-height: 390px;
+    object-fit: contain;
+    position: relative;
+    z-index: 3;
+    filter: drop-shadow(0 15px 20px #000);
+}
+
+.dancing {
+    animation: dance .5s infinite alternate ease-in-out;
+}
+
+@keyframes dance {
+    0% {
+        transform: rotate(-12deg) translateY(0) scale(.95);
+    }
+    100% {
+        transform: rotate(12deg) translateY(-20px) scale(1.05);
+    }
+}
+
+.fast1 {
+    animation: dance .25s infinite alternate;
+}
+
+.fast2 {
+    animation: dance .13s infinite alternate;
+}
+
+.fast3 {
+    animation: dance .07s infinite alternate;
+}
+
+.cooked {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1;
+}
+
+/* DISCO LIGHTS */
+
+.disco-light {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.light1 {
+    background: #ff00dd;
+    left: -100px;
+    top: 0;
+}
+
+.light2 {
+    background: #00eaff;
+    right: -100px;
+    top: 0;
+}
+
+.light3 {
+    background: #aaff00;
+    bottom: 0;
+    left: 30%;
+}
+
+.lights-on {
+    opacity: .7;
+    animation: lights 2s infinite alternate;
+}
+
+@keyframes lights {
+    0% {
+        transform: translate(-100px, -40px) scale(.8);
+    }
+    100% {
+        transform: translate(100px, 40px) scale(1.5);
+    }
+}
+
+/* LASERS */
+
+.lasers {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.lasers.active {
+    opacity: 1;
+}
+
+.laser {
+    position: absolute;
+    top: -30%;
+    height: 160%;
+    width: 3px;
+    transform-origin: top center;
+    opacity: .8;
+    filter: blur(1px);
+}
+
+.laser::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: inherit;
+    box-shadow: 0 0 8px currentColor,
+                0 0 25px currentColor,
+                0 0 50px currentColor;
+}
+
+.laser1 {
+    left: 10%;
+    color: #ff0066;
+    background: linear-gradient(transparent, #ff0066, transparent);
+    animation: beam1 4s ease-in-out infinite alternate;
+}
+
+.laser2 {
+    left: 30%;
+    color: #00eaff;
+    background: linear-gradient(transparent, #00eaff, transparent);
+    animation: beam2 5s ease-in-out infinite alternate;
+}
+
+.laser3 {
+    left: 50%;
+    color: #b000ff;
+    background: linear-gradient(transparent, #b000ff, transparent);
+    animation: beam3 3.5s ease-in-out infinite alternate;
+}
+
+.laser4 {
+    left: 70%;
+    color: #00ff88;
+    background: linear-gradient(transparent, #00ff88, transparent);
+    animation: beam1 4.5s ease-in-out infinite alternate-reverse;
+}
+
+.laser5 {
+    left: 85%;
+    color: #ffcc00;
+    background: linear-gradient(transparent, #ffcc00, transparent);
+    animation: beam2 3.8s ease-in-out infinite alternate-reverse;
+}
+
+.laser6 {
+    left: 95%;
+    color: #ff00cc;
+    background: linear-gradient(transparent, #ff00cc, transparent);
+    animation: beam3 5s ease-in-out infinite alternate;
+}
+
+@keyframes beam1 {
+    from { transform: rotate(-35deg); }
+    to { transform: rotate(35deg); }
+}
+
+@keyframes beam2 {
+    from { transform: rotate(30deg); }
+    to { transform: rotate(-30deg); }
+}
+
+@keyframes beam3 {
+    from { transform: rotate(-20deg); }
+    to { transform: rotate(45deg); }
+}
+
+/* STROBE LIGHTS */
+
+.strobe {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: white;
+    opacity: 0;
+    z-index: 4;
+}
+
+.strobe.active {
+    animation: strobeFlash .65s infinite;
+}
+
+@keyframes strobeFlash {
+    0%, 40%, 44%, 100% {
+        opacity: 0;
+    }
+    42% {
+        opacity: .2;
+    }
+}
+
+/* GIANT SMOKE CLOUD */
+
+.smoke {
+    position: absolute;
+    width: 160%;
+    height: 160%;
+    left: -30%;
+    top: -30%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    pointer-events: none;
+}
+
+.smoke.active {
+    display: flex;
+}
+
+.puff {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 35% 30%,
+        #fff,
+        #e5e5e5 45%,
+        #bdbdbd 75%,
+        #858585
+    );
+    box-shadow:
+        inset -15px -20px 30px #77777766,
+        0 0 40px #ffffff55;
+    opacity: 0;
+}
+
+.puff1 { transform: translate(-130px, -40px); }
+.puff2 { transform: translate(130px, -40px); }
+.puff3 { transform: translate(0, -150px); }
+.puff4 { transform: translate(-170px, 100px); }
+.puff5 { transform: translate(170px, 100px); }
+.puff6 { transform: translate(0, 120px); }
+.puff7 { transform: translate(-70px, -120px); }
+.puff8 { transform: translate(80px, 20px); }
+.puff9 { transform: translate(0, 0); }
+
+.smoke.active .puff {
+    animation: cloudAppear 4s ease-in-out forwards;
+}
+
+@keyframes cloudAppear {
+    0% { opacity: 0; scale: .3; }
+    25% { opacity: 1; scale: 1.8; }
+    70% { opacity: 1; scale: 2.3; }
+    90% { opacity: 1; scale: 2.5; }
+    100% { opacity: 0; scale: 2.8; }
+}
+
+/* MAIN BUTTON */
+
+#button {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+button {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    background: #ff4d00;
+    border: 2px solid #ff9b50;
+    border-radius: 50px;
+    padding: 20px 35px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 0 20px #ff4d00;
+    z-index: 10;
+}
+
+button:hover {
+    background: #ff0077;
+    box-shadow: 0 0 35px #ff0077;
+}
+
+/* HIDE TEXT DURING PARTY */
+
+body.partying h1,
+body.partying #button {
+    display: none;
+}
+
+/* FINAL BUTTONS */
+
+.final-buttons {
+    display: none;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    width: 100%;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 10;
+}
+
+.final-buttons.visible {
+    display: flex;
+}
+
+.eat {
+    background: #e89a26;
+    border-color: #ffd36a;
+}
+
+.restart {
+    background: #7928ca;
+    border-color: #c58cff;
+}
+
+/* EATING ANIMATION */
+
+.eating {
+    animation: eatAway .8s ease forwards !important;
+}
+
+@keyframes eatAway {
+    to {
+        transform: scale(.1);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 500px) {
+    h1 {
+        font-size: 3rem;
+        top: 30px;
+    }
+
+    #turkey {
+        width: 85vw;
+    }
+
+    button {
+        font-size: .85rem;
+        padding: 18px 22px;
+    }
+
+    .stage {
+        height: 45vh;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion: reduce) {
+    .strobe.active {
+        animation: none;
+        opacity: 0;
+    }
+
+    .laser,
+    .disco-light {
+        animation: none;
+    }
+}
+
+
+/* SMOOTH SMOKE TRANSITION */
+
+.smoke {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.smoke.active {
+    display: flex;
+    opacity: 1;
+}
+
+.smoke.fade-out {
+    opacity: 0;
+}
+
+.smoke.active .puff {
+    animation: cloudAppear 3.5s ease-out forwards;
+}
+
+/* Keep cooked turkey completely still */
+.cooked {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1;
+}

@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gobble Till You Wobble</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="lasers">
+        <div class="laser laser1"></div>
+        <div class="laser laser2"></div>
+        <div class="laser laser3"></div>
+        <div class="laser laser4"></div>
+        <div class="laser laser5"></div>
+        <div class="laser laser6"></div>
+    </div>
+
+    <div class="strobe"></div>
+
+    <main>
+        <h1>GOBBLE<br>TILL YOU<br><span>WOBBLE!</span></h1>
+
+        <div class="stage">
+
+            <div class="disco-light light1"></div>
+            <div class="disco-light light2"></div>
+            <div class="disco-light light3"></div>
+
+            <img src="turkey2.webp" id="turkey" alt="Dancing turkey">
+
+            <div class="smoke" id="smoke">
+                <div class="puff puff1"></div>
+                <div class="puff puff2"></div>
+                <div class="puff puff3"></div>
+                <div class="puff puff4"></div>
+                <div class="puff puff5"></div>
+                <div class="puff puff6"></div>
+                <div class="puff puff7"></div>
+                <div class="puff puff8"></div>
+                <div class="puff puff9"></div>
+            </div>
+
+        </div>
+
+        <button id="button" onclick="startParty()">
+            GET THE PARTY STARTED! 🎉
+        </button>
+
+        <div class="final-buttons" id="finalButtons">
+            <button onclick="eatTurkey()" class="eat">
+                EAT THE TURKEY 🍗
+            </button>
+
+            <button onclick="restartParty()" class="restart">
+                RESTART 🔄
+            </button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
